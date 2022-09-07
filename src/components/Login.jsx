@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import { auth } from '../firebase'
-import { signOut, signInWithEmailAndPassword } from "firebase/auth";
+import { signOut, signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
+import { useEffect } from 'react';
 
 function Login() {
 
@@ -19,14 +20,30 @@ function Login() {
     setUser(userCred.user);
    }catch(err){
     setError(err.message)
+    console.log(error)
+    setTimeout(()=>{
+      setError("")
+    }, 2000)
    }
    setLoading(false);
   }
 
-  let signout = () =>{
-    // await signOut(auth);
+  let signout = async () =>{
+    await signOut(auth);
     setUser(null)
   }
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if(user){
+        // User is logged in
+        setUser(user);
+      }else{
+        // User is logged out
+        setUser(null);
+      }
+    })
+  }, [])
 
   return (
     <>  
