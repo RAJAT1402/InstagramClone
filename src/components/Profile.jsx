@@ -8,7 +8,7 @@ function Profile() {
   return (
     <>
       {
-        contextObj == null ? <div>Need Login</div> : <div>{contextObj.cUser.uid}</div>
+        contextObj == null ? <div>Need Login</div> : <div>hello</div>
       }
       {/* <div className="header"></div>
       <div className="main">

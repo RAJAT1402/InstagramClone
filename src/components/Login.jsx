@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import { auth } from '../firebase'
 import { signOut, signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 import { useEffect } from 'react';
+import { Navigate, Link } from 'react-router-dom'
 
 function Login() {
 
@@ -54,6 +55,7 @@ function Login() {
           <input type="email" placeholder='Email' value={email} onChange={(e)=>{SetEmail(e.target.value)}}/>
           <input type="password" placeholder='Password' value={password} onChange={(e)=>{SetPassword(e.target.value)}}/>
           <button onClick={printDetails}> Login </button>
+          <Link to="/signup">go to signup</Link>
         </>
       }
     </>

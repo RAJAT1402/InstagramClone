@@ -1,0 +1,35 @@
+.instaImage{
+    height:4rem;
+}
+
+.profileImage{
+    height: 2rem;
+    width: 2rem;
+    border-radius: 50%;
+}
+
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.main_container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.upload_container{
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    border: 2px solid red;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.upload_container>*{
+    margin: 3px;
+    color: red;
+}
