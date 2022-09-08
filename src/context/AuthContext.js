@@ -9,7 +9,7 @@ export function AuthContextProvider({children}){
     let [cUser, setUser] = useState(null);
     
     useEffect(() => {
-        onAuthStateChanged(auth, (user) => {
+        const unsubscribe = onAuthStateChanged(auth, (user) => {
           if(user){
             // User is logged in
             setUser(user);
@@ -19,6 +19,7 @@ export function AuthContextProvider({children}){
           }
           setMainLoader(false);
         })
+        return unsubscribe;
       }, [])
 
     let value = {cUser};

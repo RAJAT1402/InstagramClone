@@ -13,7 +13,7 @@ function Feed() {
       <div className="main_container">
         <div className="upload_container">
           <Movie />
-          <div className="upload_text">Upload Movie</div>
+          <div className="upload_text">Upload </div>
         </div>
         <div className="reels_container">Reels</div>
       </div>

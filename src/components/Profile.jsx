@@ -1,26 +1,42 @@
-import React, {useContext} from 'react'
+import React, {useContext, useEffect} from 'react'
 import './profile.css'
 import { AuthContext } from '../context/AuthContext'
+import { doc, getDoc } from 'firebase/firestore';
+import { db } from '../firebase';
+import { useState } from 'react';
 
 function Profile() {
   let contextObj = useContext(AuthContext);
-  console.log(contextObj)
+  let cUser = contextObj.cUser;
+  let [user, setUser] = useState();
+  let [loading, setLoading] = useState(true);
+
+  useEffect(function fun(){
+    (async function (){
+      const docRef = doc(db, "users", cUser.uid);
+      const userObj = await getDoc(docRef);
+      setUser(userObj.data());
+      setLoading(false);
+    })()
+  },[]);
   return (
     <>
       {
-        contextObj == null ? <div>Need Login</div> : <div>hello</div>
+        loading == true ? <div>Loading...</div>
+        : <>
+          <div className="header"></div>
+          <div className="main">
+            <div className="pimg-container">
+              <img src="" alt="" className='pimg'/>
+            </div>
+            <div className="details">
+              <div className="content">{user.name}</div>
+              <div className="content">No of posts: <span className='bold'>{user.reelsIds.length}</span></div>
+              <div className="content">Email: <span className='bold'>{user.email}</span></div>
+            </div>
+          </div>
+        </>
       }
-      {/* <div className="header"></div>
-      <div className="main">
-        <div className="pimg-container">
-          <img src="" alt="" className='pimg'/>
-        </div>
-        <div className="details">
-          <div className="content">Name</div>
-          <div className="content">No of posts: <span className='bold'>Posts</span></div>
-          <div className="content">Email: <span className='bold'>Email</span></div>
-        </div>
-      </div> */}
     </>
   )
 }
