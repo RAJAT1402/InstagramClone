@@ -33,3 +33,16 @@
     margin: 3px;
     color: red;
 }
+
+.menu{
+    position: absolute;
+    right: 18rem;
+    top: 4rem;
+    display: none;
+    display: flex;
+    border: 1px solid #ccc;
+}
+
+.menu>*{
+    margin: 0.5rem;
+}

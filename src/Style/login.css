@@ -1,0 +1,24 @@
+.login-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 7rem;
+    text-align: center;
+  }
+  
+  .login-card{
+    width: 20rem;
+    padding: 1rem;
+    border: 1px solid #ccc;
+  }
+  
+  .signup-card{
+    width: 20rem;
+    margin-top: 1rem;
+    padding: 1rem;
+    border: 1px solid #ccc;
+  }
+  
+  .insta-img{
+    height: 5rem;
+  }

@@ -1,5 +1,5 @@
 import React, {useContext, useEffect} from 'react'
-import './profile.css'
+import '../Style/profile.css'
 import { AuthContext } from '../context/AuthContext'
 import { doc, getDoc } from 'firebase/firestore';
 import { db } from '../firebase';
